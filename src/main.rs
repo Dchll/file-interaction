@@ -10,8 +10,11 @@ struct File {
 impl File {
     fn new(name: &str) -> Self {
         let name = name.to_string();
-        // let data = Vec::<u8>::new();
-        let data = vec![114, 117, 115, 116, 33];
+        let data = Vec::<u8>::new();
+        Self { name, data }
+    }
+    fn new_with_data(name: &str, data: Vec<u8>) -> Self {
+        let name = name.to_string();
         Self { name, data }
     }
 
@@ -35,7 +38,7 @@ impl File {
 }
 
 fn main() {
-    let mut f1 = File::new("f1.txt");
+    let mut f1 = File::new_with_data("f1.txt", vec![114, 117, 115, 116, 33]);
     let mut buffer = Vec::<u8>::new();
 
     f1.open();
