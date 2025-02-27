@@ -1,25 +1,39 @@
 #![allow(unused_variables)]
 #![allow(unreachable_code)]
 
-type File = String;
-
-fn open(f: &mut File) -> bool {
-    true
+#[derive(Debug)]
+struct File {
+    name: String,
+    data: Vec<u8>,
 }
 
-fn close(f: &mut File) -> bool {
-    true
-}
+impl File {
+    fn new(name: &str) -> Self {
+        let name = name.to_string();
+        let data = Vec::<u8>::new();
+        Self{
+            name,
+            data,
+        }
+    }
+    
+    fn open(&mut self) -> bool {
+        true
+    }
 
-#[allow(unused)]
-fn read(f: &mut File, save_to: &mut Vec<u8>) -> ! {
-    todo!()
+    fn close(&mut self) -> bool {
+        true
+    }
+
+    #[allow(unused)]
+    fn read(&mut self) -> ! {
+        todo!()
+    }
 }
 
 fn main() {
-    let mut f1 = File::from("f1.txt");
-    let mut data_f1 = Vec::new();
-    open(&mut f1);
-    read(&mut f1, &mut data_f1);
-    close(&mut f1);
+    let mut f1 = File::new("f1.txt");
+    f1.open();
+    f1.read();
+    f1.close();
 }
