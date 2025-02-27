@@ -11,12 +11,9 @@ impl File {
     fn new(name: &str) -> Self {
         let name = name.to_string();
         let data = Vec::<u8>::new();
-        Self{
-            name,
-            data,
-        }
+        Self { name, data }
     }
-    
+
     fn open(&mut self) -> bool {
         true
     }
